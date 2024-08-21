@@ -39,6 +39,17 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 ]
 
+THIRD_PARTY_APPS = [
+
+]
+
+CUSTOM_APPS = [
+    'visits',
+]
+
+INSTALLED_APPS += THIRD_PARTY_APPS
+INSTALLED_APPS += CUSTOM_APPS
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
