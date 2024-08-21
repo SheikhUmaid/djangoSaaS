@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+
+{% block title %}index - {{block.super}}{% endblock title %}
+
+
+{% block body %}
+    <h1>this is my index page</h1>
+
+    {% include "sinppets/welcome-user-msg.html" %}
+{% endblock body %}
