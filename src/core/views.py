@@ -5,12 +5,16 @@ from visits.models import PageVisit
 
 
 def home(request)->render:
-    a = PageVisit.objects.create(path=request.path)
-    print(a)
+    PageVisit.objects.create(path=request.path)
     query_set = PageVisit.objects.filter(path= request.path)
-    print(query_set)
+    qs = PageVisit.objects.filter()
+    try:
+        percent = query_set.count()*100 / qs.count()
+    except:
+        percent = 0
     context = {
-        "page_visit_count": query_set.count()
+        "page_visit_count": query_set.count(),
+        "percent": percent,
     }
     print(request.path)
     return render(request, 'index.html', context)
@@ -20,4 +24,16 @@ def home(request)->render:
 
 def about(request):
     
+    PageVisit.objects.create(path=request.path)
+    query_set = PageVisit.objects.filter(path= request.path)
+    qs = PageVisit.objects.filter()
+    try:
+        percent = query_set.count()*100 / qs.count()
+    except:
+        percent = 0
+    context = {
+        "page_visit_count": query_set.count(),
+        "percent": percent,
+    }
+    print(request.path)
     return render(request, 'index.html', context)
